@@ -3,6 +3,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh '''which docker || apt-get install -y docker
+'''
         sh 'docker build -t phantomjs-highcharts:${BUILD_NUMBER} .'
       }
     }
